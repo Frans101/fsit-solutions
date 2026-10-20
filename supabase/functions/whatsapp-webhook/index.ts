@@ -17,7 +17,7 @@ async function signatureValid(body:string,signature:string|null){
   let mismatch=0;for(let i=0;i<64;i++)mismatch|=actual.charCodeAt(i)^expected.toLowerCase().charCodeAt(i);
   return mismatch===0;
 }
-const MENU="Welcome to FS IT Solutions! 👋\\n\\nReply with a number:\\n1. 💻 Buy a laptop\\n2. 🔧 Laptop repairs\\n3. 🌐 Networking & CCTV\\n4. 📄 Request a quotation\\n5. 👨‍💻 Speak to a technician\\n\\nReply MENU to see these options again.";
+const MENU="Welcome to FS IT Solutions! 👋\n\nReply with a number:\n1. 💻 Buy a laptop\n2. 🔧 Laptop repairs\n3. 🌐 Networking & CCTV\n4. 📄 Request a quotation\n5. 👨‍💻 Speak to a technician\n\nReply MENU to see these options again.";
 const replies:Record<string,string>={
  "1":"💻 What is your budget in rand, and what will you use the laptop for? A technician will confirm stock and prices.",
  "2":"🔧 Please send the device brand, model and fault description. Do not send passwords or PINs.",
@@ -57,7 +57,7 @@ Deno.serve(async req=>{
     const value=change.value??{};
     if(value.metadata?.phone_number_id!==env("META_PHONE_NUMBER_ID"))continue;
     for(const message of value.messages??[]){
-     if(!message.id||!/^\\d{6,20}$/.test(message.from??""))continue;
+     if(!message.id||!/^\d{6,20}$/.test(message.from??""))continue;
      // Reserve message ID before sending to prevent duplicate replies on webhook retries.
      const {data:reserved,error:reserveError}=await db.from("whatsapp_processed_messages")
       .upsert({message_id:message.id,phone_number:message.from},{onConflict:"message_id",ignoreDuplicates:true})
