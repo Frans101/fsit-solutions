@@ -8,7 +8,7 @@ const service = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const db = createClient(project, service, {auth:{persistSession:false}});
 const origin="https://frans101.github.io";
 const allowed = ["Laptop / desktop repair","Networking & Wi-Fi","CCTV","Printer support","Software / email","Server / backup","Other IT support"];
-const reply=(status:number,body:unknown)=>new Response(JSON.stringify(body),{status,headers:{"content-type":"application/json","access-control-allow-origin":origin,"vary":"Origin","access-control-allow-headers":"content-type","access-control-allow-methods":"POST, OPTIONS","cache-control":"no-store"}});
+const reply=(status:number,body:unknown)=>new Response(JSON.stringify(body),{status,headers:{"content-type":"application/json","access-control-allow-origin":origin,"vary":"Origin","access-control-allow-headers":"content-type, apikey, authorization, x-client-info","access-control-allow-methods":"POST, OPTIONS","cache-control":"no-store"}});
 Deno.serve(async req=>{
  if(req.method==="OPTIONS")return reply(204,{});
  if(req.method!=="POST")return reply(405,{error:"Method not allowed"});
