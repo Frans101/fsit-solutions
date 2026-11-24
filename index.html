@@ -1,1 +1,229 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; upgrade-insecure-requests"><title>FS IT Solutions | Technology that works</title><link rel="stylesheet" href="styles.css"></head><body><header><nav><div class="brand">FS <span>IT</span> SOLUTIONS</div><div><a href="#shop">Shop</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a><a href="helpdesk.html">IT Helpdesk</a></div><button data-action="toggle-cart">🛒 Cart (<span id="count">0</span>)</button></nav></header><main><div class="hero"><div class="wrap"><div class="eyebrow">Your technology partner</div><h1>Powering your digital world.</h1><p>Shop quality new and refurbished laptops, build your next gaming PC, and get dependable IT support for your home or business.</p><a class="btn" href="#shop">Explore Products →</a> <a class="btn btn-secondary" href="helpdesk.html">Request IT Support</a></div></div><section id="shop"><div class="wrap"><div class="eyebrow">Our store</div><h2>Technology for every budget</h2><p class="lead">Sample catalogue for demonstration. Replace products, prices and stock before launching.</p><div class="filters"><button class="active" data-action="filter" data-category="All">All</button><button data-action="filter" data-category="Laptops">Laptops</button><button data-action="filter" data-category="Gaming">Gaming</button><button data-action="filter" data-category="Accessories">Accessories</button></div><div id="products" class="grid"></div></div></section><section class="dark" id="services"><div class="wrap"><div class="eyebrow">What we do</div><h2>Complete IT services</h2><p class="lead">From a single laptop repair to a complete business network.</p><div class="grid" id="servicesGrid"></div></div></section><section id="about"><div class="wrap two"><div><div class="eyebrow">About us</div><h2>Local expertise. Professional service.</h2><p style="line-height:1.8;color:#536b82">FS IT Solutions supports individuals and growing businesses with practical, affordable technology. We supply computers and accessories, troubleshoot devices, develop websites, and maintain networks and systems.</p><a class="btn" href="helpdesk.html">Open support ticket</a></div><div class="card"><h3>Why choose us?</h3><p>✓ New and refurbished hardware options</p><p>✓ Custom gaming builds</p><p>✓ Remote and on-site technical support</p><p>✓ Business networking and digital services</p></div></div></section><section id="contact" class="contact-section"><div class="wrap two"><div><div class="eyebrow">Get in touch</div><h2>Let's solve your IT needs</h2><p class="lead">Send an enquiry via your email application .</p><p><strong>Email:</strong> elijahseleka@gmail.com</p><p><strong>Location:</strong> Sandton, Gauteng</p></div><form class="card" data-form="enquiry"><label>Your name</label><input id="name" maxlength="100" required><label>Email</label><input id="email" type="email" maxlength="254" required><label>Service required</label><select id="service"><option>General enquiry</option><option>Laptop or PC repair</option><option>Networking infrastructure</option><option>Website / Email hosting</option><option>Remote support</option><option>Product enquiry</option></select><label>Message</label><textarea id="message" rows="4" maxlength="3000" required></textarea><button type="submit">Compose enquiry email</button><p class="notice">This demo opens your email application; it does not send or store messages on a server.</p></form></div></section></main><div id="cart" class="cart"><h2>Shopping cart <button data-action="toggle-cart" class="cart-close">×</button></h2><div id="cartItems"></div><h3 id="total"></h3><button data-action="checkout">Request checkout quote</button><p class="notice">Live PayFast payments are not active. Checkout generates an email order request only.</p></div><footer>© 2026 FS IT Solutions · All rights reserved · Designed for growth</footer><script src="app.js" defer></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>FS IT Solutions | Technology that works</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050B1F;--ink:#EAF1FF;--mute:#9DB0D8;--blue:#1E6BFF;--gold:#FFC61A;--ice:#BFE6FF;--line:rgba(160,190,255,.2);--glass:rgba(8,18,48,.62);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Manrope",system-ui,sans-serif}
+body.nogl{background:radial-gradient(circle at 70% 30%,#12318a,#050B1F 60%)}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+h1,h2,h3,.logo,.btn,.chip{font-family:"Chakra Petch","Segoe UI",sans-serif}
+a{color:inherit}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;gap:22px;padding:calc(14px + env(safe-area-inset-top,0px)) 22px 14px;background:linear-gradient(var(--bg),rgba(5,11,31,0))}
+.logo{font-weight:700;letter-spacing:.06em;text-decoration:none;margin-right:auto}.logo b{color:var(--gold)}
+.nav a.l{font-size:15px;text-decoration:none;color:var(--mute)}.nav a.l:hover{color:#fff}
+.cartbtn{font:600 14px "Chakra Petch",sans-serif;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+.menu{display:none;font:600 14px "Chakra Petch",sans-serif;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer}
+@media(max-width:860px){.nav a.l{display:none}.menu{display:inline-block}.nav.open{flex-wrap:wrap;background:rgba(5,11,31,.96);border-bottom:1px solid var(--line)}.nav.open a.l{display:block;width:100%;padding:10px 4px;font-size:17px;color:var(--ink);border-top:1px solid var(--line)}}
+section.s{min-height:auto;padding-top:96px;padding-bottom:70px}
+.pc{display:flex;flex-direction:column}.pc .price{font:700 26px "Chakra Petch",sans-serif;color:var(--gold);margin:4px 0 2px}.pc small{margin-bottom:12px}
+.specs{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-wrap:wrap;gap:6px}.specs li{font-size:12.5px;color:var(--ice);background:rgba(30,107,255,.14);border:1px solid rgba(92,200,255,.25);border-radius:99px;padding:3px 10px}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:10px;margin-top:auto;margin-bottom:14px}.meta b{color:var(--ink);font-weight:600}
+.badge{position:absolute;top:16px;right:16px;font:600 11px "Chakra Petch",sans-serif;letter-spacing:.06em;color:#0B1530;background:var(--gold);border-radius:99px;padding:3px 9px}
+.note{font-size:13px;color:var(--mute);margin-top:18px}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:10px}.steps .card b{display:block;font:700 34px "Chakra Petch",sans-serif;color:var(--gold);line-height:1;margin-bottom:8px}
+.qty{display:flex;align-items:center;gap:6px}.qty button{width:28px;height:28px;border-radius:6px;border:1px solid var(--line);background:var(--glass);color:var(--ink);cursor:pointer;font-size:16px}
+#cart li{flex-wrap:wrap}#cart li .nm{flex:1 1 100%;font-size:15px}#cart li .ln{color:var(--gold);font-weight:700}
+.tot{display:flex;justify-content:space-between;font:700 20px "Chakra Petch",sans-serif;margin:4px 0 14px}
+footer .fg{max-width:1120px;margin:0 auto;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));text-align:left;border-top:1px solid var(--line);padding-top:30px}footer h4{font:700 14px "Chakra Petch",sans-serif;color:var(--ink);margin:0 0 8px;letter-spacing:.06em}footer a{display:block;text-decoration:none;padding:3px 0}footer a:hover{color:#fff}footer .cp{margin-top:26px;text-align:center}
+main{position:relative;z-index:2}
+section{min-height:92vh;padding:110px 22px 60px;display:flex;flex-direction:column;justify-content:center;max-width:1120px;margin:0 auto}
+.col{max-width:560px}
+.kick{color:var(--ice);font-size:15px;margin:0 0 14px;display:flex;align-items:center;gap:10px}.kick:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+h1{font-size:clamp(40px,7.4vw,84px);line-height:1;margin:0 0 20px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:clamp(30px,4.6vw,50px);line-height:1.08;margin:0 0 14px;font-weight:700}
+h3{margin:0 0 6px;font-size:20px}
+p{color:var(--mute);margin:0 0 16px}
+.btn{display:inline-block;font-weight:600;font-size:16px;text-decoration:none;border-radius:6px;padding:13px 22px;border:1px solid var(--line);cursor:pointer;margin:0 10px 10px 0;transition:transform .15s,box-shadow .15s}
+.btn.pri{background:var(--gold);color:#0B1530;border-color:var(--gold)}.btn.pri:hover{box-shadow:0 0 28px rgba(255,198,26,.5);transform:translateY(-2px)}
+.btn.sec{background:var(--glass);color:var(--ink)}.btn.sec:hover{border-color:var(--ice)}
+.btn:focus-visible,.chip:focus-visible,.cartbtn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hint{font-size:13px;color:var(--mute);margin-top:26px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 24px}
+.chip{background:var(--glass);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:15px;cursor:pointer}.chip[aria-pressed=true]{background:var(--blue);border-color:var(--blue)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:10px;padding:22px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--blue),var(--ice),transparent)}
+.card p{margin:0 0 14px;font-size:15px}.card .tag{font-size:13px;color:var(--ice)}
+.ul{list-style:none;padding:0;margin:0 0 20px}.ul li{padding:8px 0;border-bottom:1px solid var(--line)}.ul li:before{content:"✓";color:var(--gold);margin-right:10px}
+form{display:grid;gap:14px;max-width:540px;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:10px;padding:22px}
+label{font-size:14px;color:var(--mute);display:grid;gap:6px}
+input,select,textarea{font:inherit;color:var(--ink);background:rgba(3,8,24,.8);border:1px solid var(--line);border-radius:6px;padding:11px 12px;width:100%}
+small{color:var(--mute);display:block;font-size:13px}
+footer{position:relative;z-index:2;padding:30px 22px 50px;text-align:center;color:var(--mute);font-size:14px}
+#cart{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);z-index:30;background:#081230;border-left:1px solid var(--line);padding:calc(22px + env(safe-area-inset-top,0px)) 22px calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(105%);transition:transform .3s;overflow:auto}
+#cart.open{transform:none}#cart header{display:flex;justify-content:space-between;align-items:center}
+#cart li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);list-style:none}
+#cart ul{padding:0;margin:14px 0}#cart li button{background:none;border:0;color:var(--gold);cursor:pointer;font:inherit}
+.x{background:none;border:1px solid var(--line);color:var(--ink);border-radius:6px;font-size:20px;width:38px;height:38px;cursor:pointer}
+#intro{position:fixed;inset:0;z-index:50;display:flex;justify-content:space-between;align-items:flex-end;padding:0 24px calc(30px + env(safe-area-inset-bottom,0px));pointer-events:none;transition:opacity .7s;font-family:"Chakra Petch",sans-serif}#intro.done{opacity:0}#itx{font-size:15px;color:var(--ice);letter-spacing:.08em;min-height:24px}#ipct{font-size:clamp(56px,14vw,130px);font-weight:700;line-height:.9}#ipct:after{content:"%";font-size:.35em;color:var(--gold);margin-left:4px}#skip{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:22px;pointer-events:auto;background:var(--glass);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 14px "Chakra Petch",sans-serif;cursor:pointer}body.intro{overflow:hidden}.nav,main,footer{transition:opacity .9s .15s}body.intro .nav,body.intro main,body.intro footer{opacity:0}.logo{display:flex;align-items:center;gap:10px}</style></head><body class="intro">
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="intro"><button id="skip">Skip intro</button><div id="itx">INITIALISING</div><div id="ipct">0</div></div>
+<header class="nav" id="nav"><a class="logo" href="#top" aria-label="FS IT Solutions home"><svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E6BFF"/><stop offset="1" stop-color="#5CC8FF"/></linearGradient></defs><g stroke="#5CC8FF" stroke-width="4" stroke-linecap="round"><path d="M6 34h5M6 50h5M6 66h5M89 34h5M89 50h5M89 66h5M34 6v5M50 6v5M66 6v5M34 89v5M50 89v5M66 89v5"/></g><rect x="13" y="13" width="74" height="74" rx="16" fill="#0A1B3D" stroke="url(#lg)" stroke-width="6"/><text x="50" y="62" text-anchor="middle" font-family="Chakra Petch,sans-serif" font-weight="700" font-size="36" fill="#fff">FS</text></svg><span>FS <b>IT</b> SOLUTIONS</span></a>
+<a class="l" href="#shop">Shop</a><a class="l" href="#services">Services</a><a class="l" href="#support">How support works</a><a class="l" href="#about">About</a><a class="l" href="#contact">Contact</a><a class="l" href="https://frans101.github.io/fsit-solutions/helpdesk.html">IT Helpdesk</a>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button><button class="cartbtn" id="cartbtn">🛒 Cart (<span id="cc">0</span>)</button></header>
+
+<main>
+<section id="top" data-shape="0"><div class="col">
+<p class="kick">Your technology partner</p>
+<h1 data-s>Powering your digital world.</h1>
+<p>Business laptops, gaming machines, all-in-ones and printers at clear rand prices, plus repairs, networking and fibre installation from a team based in Gauteng.</p>
+<a class="btn pri" href="#shop">See products and prices →</a><a class="btn sec" href="https://frans101.github.io/fsit-solutions/helpdesk.html">Request IT Support</a>
+<p class="hint">Move your cursor or finger across the scene. The particles react.</p></div></section>
+
+<section id="shop" class="s" data-shape="1">
+<p class="kick">Our store</p><h2 data-s>Technology for every budget</h2>
+<p>Machines we supply, with full specifications and warranty. Add what you need and we will confirm stock and delivery by email.</p>
+<div class="chips" id="chips"></div><div class="grid" id="prods"></div>
+<p class="note">Prices in South African rand. FS IT Solutions is not VAT-registered, so no VAT is added. Prices and stock change with suppliers, so every order is confirmed before payment.</p></section>
+
+<section id="services" class="s" data-shape="2">
+<p class="kick">What we do</p><h2 data-s>Complete IT services</h2>
+<p>From a single laptop repair to a complete business network, and the fibre into the building.</p>
+<div class="grid">
+<div class="card"><h3>Laptop and PC repair</h3><p>Troubleshooting and repairs for home and business devices.</p></div>
+<div class="card"><h3>Networking infrastructure</h3><p>Business networking, set up and maintained.</p></div>
+<div class="card"><h3>Website and email hosting</h3><p>Websites and digital services for growing businesses.</p></div>
+<div class="card"><h3>Remote support</h3><p>Fix problems from wherever you are, with on-site visits when needed.</p></div>
+<div class="card"><h3>Custom gaming builds</h3><p>Your next gaming PC, specified around how you play.</p></div>
+<div class="card"><h3>New and refurbished hardware</h3><p>Computers and accessories to suit your budget.</p></div>
+<div class="card"><h3>Fibre installation</h3><p>Qualified technicians for household fibre: cable routing, splicing and termination, ONT installation and testing.</p></div></div></section>
+
+<section id="support" class="s" data-shape="2">
+<p class="kick">How support works</p><h2 data-s>Three steps to fixed</h2>
+<div class="steps">
+<div class="card"><b>1</b><h3>Log a ticket</h3><p>Use the IT Helpdesk or the contact form and tell us what is wrong.</p></div>
+<div class="card"><b>2</b><h3>We diagnose</h3><p>We look remotely first, and come on site when the problem needs hands.</p></div>
+<div class="card"><b>3</b><h3>You get a quote</h3><p>You see the cost before any parts or work are charged.</p></div></div>
+<p style="margin-top:22px"><a class="btn pri" href="https://frans101.github.io/fsit-solutions/helpdesk.html">Open a support ticket</a></p></section>
+
+<section id="about" class="s" data-shape="3"><div class="col">
+<p class="kick">About us</p><h2 data-s>Local expertise. Professional service.</h2>
+<p>FS IT Solutions supports individuals and growing businesses with practical, affordable technology. We supply computers and accessories, troubleshoot devices, develop websites, and maintain networks and systems.</p>
+<h3 style="margin-top:26px">Why choose us?</h3>
+<ul class="ul"><li>New, refurbished and open-box options, clearly labelled</li><li>Clear rand prices with no VAT added</li><li>Custom gaming builds</li><li>Remote and on-site technical support</li><li>Business networking, fibre and digital services</li></ul></div></section>
+
+<section id="contact" class="s" data-shape="3">
+<p class="kick">Get in touch</p><h2 data-s>Let’s solve your IT needs</h2>
+<p>Email <a href="mailto:elijahseleka@gmail.com" style="color:var(--gold)">elijahseleka@gmail.com</a> · Johannesburg, Gauteng</p>
+<form id="f"><label>Your name<input id="fn" required></label><label>Email<input id="fe" type="email" required></label><label>Phone (optional)<input id="fp" type="tel"></label>
+<label>Service required<select id="fs"><option>General enquiry</option><option>Laptop or PC repair</option><option>Networking infrastructure</option><option>Website / Email hosting</option><option>Remote support</option><option>Fibre installation</option><option>Product enquiry</option></select></label>
+<label>Message<textarea id="fm" rows="4" required></textarea></label>
+<button class="btn pri" type="submit">Compose enquiry email</button>
+<small>This opens your email app with the message ready to send. Nothing is stored on this site.</small></form></section>
+</main>
+<footer><div class="fg"><div><h4>FS IT SOLUTIONS</h4><p>IT sales, repairs and technical support.<br>Work Smart. Live Better.</p></div><div><h4>EXPLORE</h4><a href="#shop">Shop</a><a href="#services">Services</a><a href="#support">How support works</a><a href="#contact">Contact</a></div><div><h4>HELP</h4><a href="https://frans101.github.io/fsit-solutions/helpdesk.html">IT Helpdesk</a><a href="mailto:elijahseleka@gmail.com">elijahseleka@gmail.com</a><span>Johannesburg, Gauteng</span></div></div><p class="cp">© 2026 FS IT Solutions · All rights reserved</p></footer>
+
+<aside id="cart" aria-label="Shopping cart"><header><h2 style="font-size:26px;margin:0">Shopping cart</h2><button class="x" id="cx" aria-label="Close cart">×</button></header>
+<ul id="cl"></ul><div class="tot"><span>Total</span><span id="ct">R0.00</span></div><button class="btn pri" id="co">Request this order by email</button>
+<small>No payment is taken on this site. We confirm stock, delivery and payment details by email first. No VAT is added.</small></aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var EMAIL='elijahseleka@gmail.com',RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(RM){document.body.classList.remove('intro');document.getElementById('intro').style.display='none'}
+/* ---------- shop + cart ---------- */
+var P=[
+ {n:'Dell Pro 15 Essential PV15250',c:'laptops',p:24968.90,w:'3 years',k:'New',d:'Business laptop with a 120Hz screen and Windows 11 Pro.',s:['Intel Core i7-1355U','16GB DDR5','1TB NVMe SSD','15.6" FHD 120Hz','Windows 11 Pro']},
+ {n:'ASUS Vivobook X1504VAPB',c:'laptops',p:18698.90,w:'1 year',k:'New',d:'Light everyday laptop with Wi-Fi 6 and a webcam privacy shutter.',s:['Intel Core 7 150U','16GB DDR5','512GB NVMe SSD','15.6" FHD','Windows 11 Home']},
+ {n:'Acer E10 Laptop',c:'laptops',p:12951.40,w:'Ask us',k:'Open box',d:'Value laptop for study and office work.',s:['Intel Core i5-1235U','8GB RAM','512GB SSD','15.6" FHD','Windows 11']},
+ {n:'ASUS TUF Gaming A15 FA506NCG',c:'gaming',p:19468.90,w:'1 year',k:'New',d:'Entry gaming laptop with an RTX 3050 and a 144Hz screen.',s:['Ryzen 7 7445HS','8GB DDR5, 2 slots','512GB PCIe 4.0 SSD','RTX 3050','15.6" FHD 144Hz']},
+ {n:'Dell 27 All-in-One EC27250',c:'desktops',p:45504.00,w:'3-year Dell ProSupport',k:'New',d:'27-inch touch all-in-one with wireless keyboard and mouse.',s:['Intel Core 7 150U','16GB DDR5','1TB NVMe SSD','27" FHD touch','MX570A 2GB','Windows 11 Pro']},
+ {n:'Epson EcoTank L14150 A3',c:'printers',p:10558.90,w:'1-year limited',k:'New',d:'A3 ink-tank multifunction printer for high-volume office printing.',s:['A3 print, scan, copy','Ink tank','Low running cost']}];
+var cart={},cat='all',$=function(s){return document.querySelector(s)};
+var CN={all:'All',laptops:'Laptops',gaming:'Gaming',desktops:'All-in-ones',printers:'Printers'};
+var Z=function(n){return 'R'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})};
+function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+function chips(){$('#chips').innerHTML=Object.keys(CN).map(function(k){return '<button class="chip" data-k="'+k+'" aria-pressed="'+(k===cat)+'">'+CN[k]+'</button>'}).join('')}
+function prods(){$('#prods').innerHTML=P.map(function(p,i){return p.c===cat||cat==='all'?'<div class="card pc">'+(p.k!=='New'?'<span class="badge">'+esc(p.k.toUpperCase())+'</span>':'')+'<span class="tag">'+CN[p.c]+'</span><h3>'+esc(p.n)+'</h3><div class="price">'+Z(p.p)+'</div><small>No VAT added</small><p>'+esc(p.d)+'</p><ul class="specs">'+p.s.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul><div class="meta"><span>Warranty <b>'+esc(p.w)+'</b></span><span>'+esc(p.k)+'</span></div><button class="btn sec" data-i="'+i+'">Add to cart</button></div>':''}).join('')}
+function rc(){var ks=Object.keys(cart),n=0,t=0;ks.forEach(function(i){n+=cart[i];t+=cart[i]*P[i].p});$('#cc').textContent=n;$('#ct').textContent=Z(t);
+ $('#cl').innerHTML=ks.length?ks.map(function(i){return '<li><span class="nm">'+esc(P[i].n)+'</span><span class="qty"><button data-m="'+i+'" aria-label="One less">−</button><span>'+cart[i]+'</span><button data-a="'+i+'" aria-label="One more">+</button></span><span class="ln">'+Z(cart[i]*P[i].p)+'</span><button data-r="'+i+'">Remove</button></li>'}).join(''):'<li>Your cart is empty.</li>'}
+document.addEventListener('click',function(e){var t=e.target.closest('button,a')||e.target;var d=t.dataset||{};
+ if(d.k){cat=d.k;chips();prods()}
+ if(d.i!==undefined){cart[d.i]=(cart[d.i]||0)+1;rc();$('#cart').classList.add('open')}
+ if(d.a!==undefined){cart[d.a]++;rc()}
+ if(d.m!==undefined){if(--cart[d.m]<1)delete cart[d.m];rc()}
+ if(d.r!==undefined){delete cart[d.r];rc()}
+ if(t.matches&&t.matches('.nav a.l')){$('#nav').classList.remove('open');$('#menu').setAttribute('aria-expanded','false')}});
+$('#menu').onclick=function(){var o=$('#nav').classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Close':'Menu'};
+$('#cartbtn').onclick=function(){$('#cart').classList.toggle('open')};$('#cx').onclick=function(){$('#cart').classList.remove('open')};
+$('#co').onclick=function(){var ks=Object.keys(cart);if(!ks.length)return;var t=0,lines=ks.map(function(i){t+=cart[i]*P[i].p;return cart[i]+' x '+P[i].n+' ('+Z(P[i].p)+' each) = '+Z(cart[i]*P[i].p)});
+ location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Order request')+'&body='+encodeURIComponent('Hi FS IT Solutions,\n\nPlease confirm stock and delivery for:\n\n'+lines.join('\n')+'\n\nTotal: '+Z(t)+' (no VAT added)\n\nMy name:\nMy phone:\nDelivery area:\n')};
+$('#f').onsubmit=function(e){e.preventDefault();location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent($('#fs').value+' from '+$('#fn').value)+'&body='+encodeURIComponent($('#fm').value+'\n\nReply to: '+$('#fe').value+($('#fp').value?'\nPhone: '+$('#fp').value:''))};
+chips();prods();rc();
+/* ---------- text scramble (Igloo UI effect) ---------- */
+var CH='01<>/\\|+*#$%&=?';
+function scramble(el){var t=el.dataset.t||(el.dataset.t=el.textContent);el.setAttribute('aria-label',t);if(RM||el.dataset.done)return;el.dataset.done=1;var f=0;
+ var id=setInterval(function(){f+=1.1;var k=Math.floor(f);el.textContent=t.split('').map(function(c,i){return c===' '||i<k?c:CH[Math.random()*CH.length|0]}).join('');if(k>=t.length){el.textContent=t;clearInterval(id)}},30)}
+/* ---------- WebGL: particles + chromatic aberration / glitch / frost pass ---------- */
+var cv=$('#gl'),R;
+try{R=new THREE.WebGLRenderer({canvas:cv,antialias:false,powerPreference:'high-performance'})}catch(e){document.body.classList.add('nogl');document.body.classList.remove('intro');document.getElementById('intro').remove();document.querySelectorAll('[data-s]').forEach(scramble);return}
+R.setPixelRatio(Math.min(devicePixelRatio||1,1.6));
+var scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(50,1,.1,100);cam.position.z=9;
+var N=matchMedia('(max-width:700px)').matches?8000:15000,TAU=Math.PI*2,rnd=Math.random;
+var nodes=[],edges=[],i;for(i=0;i<22;i++){var th=rnd()*TAU,ph=Math.acos(2*rnd()-1);nodes.push([Math.sin(ph)*Math.cos(th)*3.4,Math.cos(ph)*3.4,Math.sin(ph)*Math.sin(th)*3.4])}
+for(i=0;i<40;i++)edges.push([nodes[rnd()*22|0],nodes[rnd()*22|0]]);
+function gen(f){var a=new Float32Array(N*3);for(var j=0;j<N;j++){var p=f(j);a[j*3]=p[0];a[j*3+1]=p[1];a[j*3+2]=p[2]}return a}
+var shapes=[
+ gen(function(j){var r=Math.pow(rnd(),.7)*4.6,th=r*1.15+(j%3)*TAU/3+(rnd()-.5)*.5;return[Math.cos(th)*r,(rnd()-.5)*.8*(1-r/5)+Math.sin(r*2)*.15,Math.sin(th)*r]}),
+ gen(function(j){var u=rnd(),v=rnd(),x,y,z;
+  if(j%10<6){x=(u-.5)*4.4;var yy=v*2.8;if(rnd()<.3){if(rnd()<.5)x=rnd()<.5?-2.2:2.2;else yy=rnd()<.5?0:2.8}y=-.5+yy*.976;z=-1.3-yy*.22}
+  else{x=(u-.5)*5;z=-1.2+v*3.4;if(rnd()<.3){if(rnd()<.5)x=rnd()<.5?-2.5:2.5;else z=rnd()<.5?-1.2:2.2}y=-.5-rnd()*.12}
+  return[x,y,z]}),
+ gen(function(j){var q=function(){return(rnd()+rnd()+rnd()-1.5)*.3};if(j%2){var n=nodes[j%22];return[n[0]+q(),n[1]+q(),n[2]+q()]}
+  var e=edges[j%40],t=rnd();return[e[0][0]+(e[1][0]-e[0][0])*t+q()*.3,e[0][1]+(e[1][1]-e[0][1])*t+q()*.3,e[0][2]+(e[1][2]-e[0][2])*t+q()*.3]}),
+ gen(function(j){if(j%5===0){var a=rnd()*TAU;return[Math.cos(a)*4.5,(rnd()-.5)*.08,Math.sin(a)*4.5]}
+  var th2=rnd()*TAU,ph2=Math.acos(2*rnd()-1);return[Math.sin(ph2)*Math.cos(th2)*3.3,Math.cos(ph2)*3.3,Math.sin(ph2)*Math.sin(th2)*3.3]})];
+var pos=new Float32Array(N*3),spd=new Float32Array(N),seed=new Float32Array(N);
+for(i=0;i<N;i++){var a=rnd()*TAU,r=8+rnd()*10;pos[i*3]=Math.cos(a)*r;pos[i*3+1]=(rnd()-.5)*14;pos[i*3+2]=Math.sin(a)*r;seed[i]=rnd()}
+var geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(pos,3));geo.setAttribute('aSpd',new THREE.BufferAttribute(spd,1));geo.setAttribute('aSeed',new THREE.BufferAttribute(seed,1));
+var pm=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,uniforms:{uPx:{value:R.getPixelRatio()*2.4}},
+ vertexShader:'attribute float aSpd;attribute float aSeed;uniform float uPx;varying float vS;varying float vK;void main(){vec4 mv=modelViewMatrix*vec4(position,1.);gl_Position=projectionMatrix*mv;vS=aSpd;vK=aSeed;gl_PointSize=uPx*(1.+aSpd*2.5)*(9./-mv.z);}',
+ fragmentShader:'varying float vS;varying float vK;void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;float a=smoothstep(.5,0.,d);vec3 b=mix(vec3(.12,.42,1.),vec3(.8,.9,1.),vK);b=mix(b,vec3(1.,.78,.1),step(.94,vK));vec3 c=mix(b,vec3(.5,.9,1.),clamp(vS*2.5,0.,1.));gl_FragColor=vec4(c*a*(.85+vS*2.),a);}'});
+var pts=new THREE.Points(geo,pm);scene.add(pts);
+var rt=new THREE.WebGLRenderTarget(2,2,{minFilter:THREE.LinearFilter,magFilter:THREE.LinearFilter});
+var qs=new THREE.Scene(),qc=new THREE.OrthographicCamera(-1,1,1,-1,0,1);
+var qm=new THREE.ShaderMaterial({uniforms:{t:{value:rt.texture},uT:{value:1},uF:{value:.9},uTime:{value:0},uA:{value:1}},
+ vertexShader:'varying vec2 v;void main(){v=uv;gl_Position=vec4(position.xy,0.,1.);}',
+ fragmentShader:'uniform sampler2D t;uniform float uT,uF,uTime,uA;varying vec2 v;float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1.,0.)),f.x),mix(h(i+vec2(0.,1.)),h(i+vec2(1.,1.)),f.x),f.y);}void main(){vec2 c=v-.5;float r=length(c);float tk=floor(uTime*18.);float band=floor(v.y*40.);float g=step(.8,h(vec2(band,tk)))*uT;vec2 uv=v+vec2((h(vec2(band,tk+7.))-.5)*.07*g,0.);float k=(.003+.026*uT)*(r+.3);vec3 col=vec3(texture2D(t,uv+c*k).r,texture2D(t,uv).g,texture2D(t,uv-c*k).b);vec2 q=v*vec2(uA,1.);float fn=n(q*14.)*.6+n(q*60.)*.4;float m=smoothstep(0.,.12,fn*.55+r*1.3*.55-(1.15-uF));vec3 bl=(texture2D(t,uv+vec2(.004,0.)).rgb+texture2D(t,uv-vec2(.004,0.)).rgb+texture2D(t,uv+vec2(0.,.004)).rgb+texture2D(t,uv-vec2(0.,.004)).rgb)*.25;vec3 ice=vec3(.78,.9,1.)*(.55+.45*h(v*900.));col=mix(col,mix(bl,ice,.35),m*.8);col*=1.-.55*r*r;gl_FragColor=vec4(col,1.);}'});
+qs.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),qm));
+var cur=RM?0:4,T=RM?0:1,F=RM?.2:.9,mx=0,my=0,W=1,H=1;
+/* ---------- intro: particles form the FS mark, then burst into the scene ---------- */
+shapes.push(shapes[3]);
+var IN=!RM,done=false,t0=null,lp=-1,ls='',pe=document.getElementById('ipct'),se=document.getElementById('itx');
+function rr(x,a,b,w,h,r){x.beginPath();x.moveTo(a+r,b);x.arcTo(a+w,b,a+w,b+h,r);x.arcTo(a+w,b+h,a,b+h,r);x.arcTo(a,b+h,a,b,r);x.arcTo(a,b,a+w,b,r);x.closePath()}
+function logoShape(){var c=document.createElement('canvas');c.width=c.height=400;var x=c.getContext('2d');x.fillStyle='#fff';x.strokeStyle='#fff';x.lineWidth=26;rr(x,70,70,260,260,56);x.stroke();
+ [140,200,260].forEach(function(v){x.fillRect(v-8,16,16,42);x.fillRect(v-8,342,16,42);x.fillRect(16,v-8,42,16);x.fillRect(342,v-8,42,16)});
+ x.font='700 150px "Chakra Petch",sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('FS',200,208);
+ var d=x.getImageData(0,0,400,400).data,s=[];for(var y=0;y<400;y+=2)for(var q=0;q<400;q+=2)if(d[(y*400+q)*4+3]>128)s.push([q,y]);
+ return gen(function(j){var p=s[(j*7919)%s.length]||s[0];return[(p[0]-200)/400*7.2+(rnd()-.5)*.05,-(p[1]-200)/400*7.2+(rnd()-.5)*.05,(rnd()-.5)*.35]})}
+Promise.race([document.fonts.load('700 150px "Chakra Petch"'),new Promise(function(r){setTimeout(r,1200)})]).then(function(){shapes[4]=logoShape()}).catch(function(){shapes[4]=logoShape()});
+function finish(){if(done)return;done=true;document.body.classList.remove('intro');document.getElementById('intro').classList.add('done');jump(0);T=1;F=.95;setTimeout(function(){var h=document.querySelector('#top [data-s]');if(h)scramble(h)},400)}
+document.getElementById('skip').onclick=finish;
+var LP=[0,0,1],IP=[0,0,1],half0=Math.tan(25*Math.PI/180)*9;
+function size(){W=innerWidth;H=innerHeight;R.setSize(W,H,false);rt.setSize(W*R.getPixelRatio(),H*R.getPixelRatio());cam.aspect=W/H;cam.updateProjectionMatrix();qm.uniforms.uA.value=W/H;
+ var d=W>900;LP=[d?2.7:0,d?0:2.2,d?1:.72];IP=[0,.2,Math.min(1.05,W/H*half0*2*.8/7.4)]}
+size();addEventListener('resize',size);
+addEventListener('pointermove',function(e){mx=e.clientX/W*2-1;my=-(e.clientY/H*2-1)});
+function jump(n){if(n===cur)return;cur=n;if(!RM){T=1;F=.75}}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&(done||!IN)){jump(+e.target.dataset.shape);var h=e.target.querySelector('[data-s]');if(h)scramble(h)}})},{threshold:.45});
+document.querySelectorAll('section[data-shape]').forEach(function(s){io.observe(s)});
+var half=Math.tan(25*Math.PI/180)*9;
+function frame(ms){requestAnimationFrame(frame);
+ var tp=(IN&&!done)?IP:LP;pts.position.x+=(tp[0]-pts.position.x)*.06;pts.position.y+=(tp[1]-pts.position.y)*.06;pts.scale.setScalar(pts.scale.x+(tp[2]-pts.scale.x)*.06);
+ if(IN&&!done){t0=t0||ms;var el=(ms-t0)/1000,pc=Math.min(100,Math.floor(el/3*100));if(pc!==lp){lp=pc;pe.textContent=pc}var st=el<.9?'LOADING PARTICLES':el<1.9?'COMPILING SHADERS':el<2.7?'FORMING THE FS MARK':'WELCOME TO FS IT SOLUTIONS';if(st!==ls){ls=st;se.dataset.t=st;delete se.dataset.done;se.textContent=st;scramble(se)}if(el>3.1)finish()}
+ var t=ms/1000,tg=shapes[cur],lx=mx*half*(W/H)-pts.position.x,ly=my*half-pts.position.y;
+ for(var j=0;j<N;j++){var k=j*3,rr=.018+(j%9)*.004,dx=tg[k]-pos[k],dy=tg[k+1]-pos[k+1],dz=tg[k+2]-pos[k+2],d2=dx*dx+dy*dy+dz*dz,c=.012*Math.min(1,d2/9);
+  pos[k]+=dx*rr-dz*c;pos[k+1]+=dy*rr;pos[k+2]+=dz*rr+dx*c;
+  var ex=pos[k]-lx,ey=pos[k+1]-ly,q=ex*ex+ey*ey;if(q<2.6){var f=(2.6-q)*.012;pos[k]+=ex*f;pos[k+1]+=ey*f}
+  spd[j]=spd[j]*.88+Math.min(Math.sqrt(d2)*rr*2,1)*.12}
+ geo.attributes.position.needsUpdate=true;geo.attributes.aSpd.needsUpdate=true;
+ pts.rotation.y=(IN&&!done)?pts.rotation.y*.9:pts.rotation.y+(RM?0:.0016+scrollY*.0000015);pts.rotation.x+=((my*.18)-pts.rotation.x)*.04;
+ T*=.94;F+=(.2-F)*.035;qm.uniforms.uT.value=T;qm.uniforms.uF.value=F;qm.uniforms.uTime.value=t;
+ R.setRenderTarget(rt);R.setClearColor(0x050b1f,1);R.clear();R.render(scene,cam);R.setRenderTarget(null);R.render(qs,qc)}
+requestAnimationFrame(frame);
+})();
+</script></body></html>
